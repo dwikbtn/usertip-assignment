@@ -37,7 +37,7 @@
   @apply active:bg-neutral-300 active:cursor-pointer active:shadow-nav active:shadow-white rounded-xl;
 }
 .hover-link {
-  @apply hover:cursor-pointer hover:underline;
+  @apply hover:cursor-pointer;
 }
 .header {
   @apply font-semibold text-4xl tracking-["-0.02em"];

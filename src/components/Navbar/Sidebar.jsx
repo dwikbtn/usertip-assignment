@@ -9,7 +9,7 @@ import profileIc from "../../assets/icons/profile.svg";
 import storeIc from "../../assets/icons/store.svg";
 import logOutIc from "../../assets/icons/logout.svg";
 
-const SideBar = ({ navbarHandler }) => {
+const SideBar = ({ navbarHandler, logOutHandler }) => {
   return (
     <nav className="w-full row-span-full bg-neutral-100 flex flex-col h-screen p-6 justify-between">
       <img src={logo} alt="logo" className="w-12 h-12 mb-12" />
@@ -67,7 +67,12 @@ const SideBar = ({ navbarHandler }) => {
             alt="home nav"
             className="w-6 h-6 inline mr-3  "
           />
-          <span className="font-semibold text-tiny leading-6 tracking-tightest text-neutral-400 group-hover:text-neutral-700">
+          <span
+            className="font-semibold text-tiny leading-6 tracking-tightest text-neutral-400 group-hover:text-neutral-700 hover-sidebar"
+            onClick={() => {
+              logOutHandler();
+            }}
+          >
             Logout
           </span>
         </div>

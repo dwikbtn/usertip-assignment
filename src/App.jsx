@@ -54,8 +54,8 @@ function App() {
         />
       ) : (
         <div className="layout-grid ">
-          <SideBar navbarHandler={navbarHandler} />
-          <Topbar userInfo={userInfo} />
+          <SideBar navbarHandler={navbarHandler} logOutHandler={loginHandler} />
+          <Topbar userInfo={userInfo} logOutHandler={loginHandler} />
           <div className="w-full  h-screen  bg-neutral-200">
             {currentView === "home" && <Home userInfo={userInfo} />}
             {currentView === "catch" && <Catch userInfo={userInfo} />}
