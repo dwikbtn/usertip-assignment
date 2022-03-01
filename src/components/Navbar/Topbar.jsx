@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import pBall from "../../assets/icons/pokeball.svg";
 import gBall from "../../assets/icons/greatball.svg";
@@ -7,7 +7,13 @@ import walletIc from "../../assets/icons/wallet.svg";
 import avatar from "../../assets/icons/avatar.png";
 import { Menu } from "@headlessui/react";
 
-const Topbar = ({ userInfo, logOutHandler }) => {
+import { UserContext } from "../../UserContext";
+
+const Topbar = ({ logOutHandler }) => {
+  const { userInfo } = useContext(UserContext);
+  const { pokeB, greatB, masterB, coins } = userInfo;
+
+  console.log({ userInfo });
   return (
     <nav className="h-24 bg-neutral-100">
       <ul className="py-9 pr-10 flex justify-end items-center">
@@ -18,7 +24,7 @@ const Topbar = ({ userInfo, logOutHandler }) => {
             className="w-5 mr-[6px] inline"
           />
           <span className="font-bold text-tiny text-neutral-400 tracking-tightest">
-            {userInfo.pokeB}
+            {pokeB}
           </span>
         </li>
         <li className="mr-10">
@@ -28,7 +34,7 @@ const Topbar = ({ userInfo, logOutHandler }) => {
             className="w-5 mr-[6px] inline"
           />
           <span className="font-bold text-tiny text-neutral-400 tracking-tightest">
-            {userInfo.greatB}
+            {greatB}
           </span>
         </li>
         <li className="mr-10 ">
@@ -38,7 +44,7 @@ const Topbar = ({ userInfo, logOutHandler }) => {
             className="w-5 mr-[6px] inline"
           />
           <span className="font-bold text-tiny text-neutral-400 tracking-tightest">
-            {userInfo.masterB}
+            {masterB}
           </span>
         </li>
         <li className="mr-10 ">
@@ -48,7 +54,7 @@ const Topbar = ({ userInfo, logOutHandler }) => {
             className="w-5 mr-[6px] inline"
           />
           <span className="font-bold text-tiny text-neutral-400 tracking-tightest">
-            {userInfo.coins}
+            {coins}
           </span>
         </li>
         <li className="relative">

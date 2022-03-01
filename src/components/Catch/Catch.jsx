@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import pBall from "../../assets/icons/pokeball.svg";
 import gBall from "../../assets/icons/greatball.svg";
@@ -8,10 +8,14 @@ import looking from "../../assets/icons/looking.svg";
 import pokeball from "../../assets/icons/pokeball.png";
 import placeholderImg from "../../assets/icons/placeholder-1.png";
 
-const Catch = ({ userInfo }) => {
+import { UserContext } from "../../UserContext";
+
+const Catch = () => {
   const [findPokemon, setFind] = useState(false);
   const [viewState, setViewState] = useState("pickPokeBallView");
   const [currentPokemon, setPokemon] = useState();
+
+  const { userInfo } = useContext(UserContext);
 
   useEffect(() => {
     let randomNumber = Math.floor(Math.random() * (898 - 1 + 1)) + 1;

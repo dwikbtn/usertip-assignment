@@ -8,18 +8,23 @@ import Topbar from "./components/Navbar/Topbar";
 
 // json
 import db from "./database/db.json";
+import { UserContext } from "./UserContext";
 
 function App() {
   const [userInfo, setUserInfo] = useState(db);
   const [logStatus, setLogStatus] = useState(false);
   const [currentView, setCurrrentView] = useState("home");
 
-  const loginHandler = () => {
+  // create Context
+
+  const loginHandler = (loggedUser) => {
+    setUserInfo(loggedUser);
     setLogStatus((prevState) => {
       return !prevState;
     });
   };
 
+  console.log(userInfo);
   const signUpHandler = (email, userName, password) => {
     const newUser = {
       email,
@@ -39,7 +44,6 @@ function App() {
     });
   };
 
-  console.log(userInfo);
   const navbarHandler = (position) => {
     setCurrrentView(position);
   };
@@ -53,14 +57,19 @@ function App() {
           signUpHandler={signUpHandler}
         />
       ) : (
-        <div className="layout-grid ">
-          <SideBar navbarHandler={navbarHandler} logOutHandler={loginHandler} />
-          <Topbar userInfo={userInfo} logOutHandler={loginHandler} />
-          <div className="w-full  h-screen  bg-neutral-200">
-            {currentView === "home" && <Home userInfo={userInfo} />}
-            {currentView === "catch" && <Catch userInfo={userInfo} />}
+        <UserContext.Provider value={{ userInfo, setUserInfo }}>
+          <div className="layout-grid ">
+            <SideBar
+              navbarHandler={navbarHandler}
+              logOutHandler={loginHandler}
+            />
+            <Topbar logOutHandler={loginHandler} />
+            <div className="w-full  h-screen  bg-neutral-200">
+              {currentView === "home" && <Home />}
+              {currentView === "catch" && <Catch />}
+            </div>
           </div>
-        </div>
+        </UserContext.Provider>
       )}
     </>
   );

@@ -31,8 +31,7 @@ const Login = (props) => {
       return 0;
     }
     if (userName === userData.userName && password === userData.password) {
-      setErrorMsg();
-      props.logStatus();
+      props.logStatus(userData);
     } else {
       setErrorMsg((prev) => ({ ...prev, passValidation: true }));
     }
