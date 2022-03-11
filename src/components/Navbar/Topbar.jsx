@@ -13,7 +13,6 @@ const Topbar = ({ logOutHandler }) => {
   const { userInfo } = useContext(UserContext);
   const { pokeB, greatB, masterB, coins } = userInfo;
 
-  console.log({ userInfo });
   return (
     <nav className="h-24 bg-neutral-100">
       <ul className="py-9 pr-10 flex justify-end items-center">

@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div>
-      <h3 className="header mt-10 ml-10 mb-6 ">Welcome, name</h3>
+      <h3 className="header mt-10 ml-10 mb-6 ">Welcome, {userInfo.userName}</h3>
       <div className="prodOverview mt-4 mx-10">
         <div className="flex justify-between items-center p-6">
           <p className="text text-neutral-700">Start your Adventure Now!</p>

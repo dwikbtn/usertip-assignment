@@ -33,8 +33,12 @@
 .hover-sidebar {
   @apply hover:bg-neutral-300 hover:cursor-pointer hover:shadow-nav hover:shadow-white rounded-xl;
 }
+
 .active-sidebar {
-  @apply active:bg-neutral-300 active:cursor-pointer active:shadow-nav active:shadow-white rounded-xl;
+  @apply bg-neutral-300 cursor-pointer shadow-nav shadow-white rounded-xl;
+}
+.active-pokeball {
+  @apply border-primary p-4 w-80  border-2 rounded-xl  flex items-center active:border-primary disabled:bg-neutral-200 disabled:text-neutral-400;
 }
 .hover-link {
   @apply hover:cursor-pointer;

@@ -24,7 +24,6 @@ function App() {
     });
   };
 
-  console.log(userInfo);
   const signUpHandler = (email, userName, password) => {
     const newUser = {
       email,
@@ -62,6 +61,7 @@ function App() {
             <SideBar
               navbarHandler={navbarHandler}
               logOutHandler={loginHandler}
+              activeView={currentView}
             />
             <Topbar logOutHandler={loginHandler} />
             <div className="w-full  h-screen  bg-neutral-200">
